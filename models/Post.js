@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
     user: {
-      type: Schema.Type.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'users'
     },
     text:{
@@ -21,7 +21,7 @@ const PostSchema = new Schema({
     likes: [
       {
         user:{
-          type: Schema.Type.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: 'users'
           }
       }
@@ -29,7 +29,7 @@ const PostSchema = new Schema({
     comments: [
       {
         user:{
-          type: Schema.Type.ObjectId,
+          type: Schema.Types.ObjectId,
           ref: 'users'
           },
         text:{
@@ -48,10 +48,10 @@ const PostSchema = new Schema({
         }
       }
     ],
-  date:{
-    type:date
-    default: Date.now
-  }
+    date:{
+      type:Date,
+      default: Date.now
+    }
 });
 
 module.exports = Post = mongoose.model('post', PostSchema);
